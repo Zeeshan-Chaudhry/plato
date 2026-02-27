@@ -1,0 +1,88 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Course Outline Converter//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+SUMMARY:Lecture -
+DTSTART;TZID=America/Toronto:20250901T093000
+DTEND;TZID=America/Toronto:20250901T102000
+UID:3eaef006-8dee-46d2-b897-fb8fd2a57a47@course-outline
+RRULE:FREQ=WEEKLY;UNTIL=20251215;BYDAY=MO
+DESCRIPTION:Lecture section N/A
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Lecture -
+DTSTART;TZID=America/Toronto:20250903T093000
+DTEND;TZID=America/Toronto:20250903T102000
+UID:4ecdb60d-19e4-426a-b949-a057b1716ad5@course-outline
+RRULE:FREQ=WEEKLY;UNTIL=20251215;BYDAY=WE
+DESCRIPTION:Lecture section N/A
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Lecture -
+DTSTART;TZID=America/Toronto:20250905T093000
+DTEND;TZID=America/Toronto:20250905T102000
+UID:31717f6b-92e1-4a3b-b40e-04dddddc5d0e@course-outline
+RRULE:FREQ=WEEKLY;UNTIL=20251215;BYDAY=FR
+DESCRIPTION:Lecture section N/A
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DUE: In Class Quiz 1
+DTSTART;TZID=America/Toronto:20251019T100000
+DTEND;TZID=America/Toronto:20251019T100100
+UID:f0b00b59-039e-4aab-bc83-3ea168d30a08@course-outline
+DESCRIPTION:Assessment: In Class Quiz 1\nType: quiz\nWeight: 7.0%\nSource:
+  In Class Quiz 1\, Mixed format 7% Oct 1 in class Reweight to midterm cove
+ rs Modules 1-2 (25 min) with approved academic consideration Midterm Test 
+ (2 Mixed format 40% Sunday\, Oct 19 Not applicable: hrs\nConfidence: 80.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DUE: In Class Quiz 2
+DTSTART;TZID=America/Toronto:20251112T100000
+DTEND;TZID=America/Toronto:20251112T100100
+UID:1987463a-1716-44a8-9ae2-48a4ea93dab3@course-outline
+DESCRIPTION:Assessment: In Class Quiz 2\nType: quiz\nWeight: 8.0%\nSource:
+  In Class Quiz 2\, Mixed format 8% Nov 12 in class Reweight to final with 
+ covers Modules 1-5 (25 min) approved academic consideration\nConfidence: 8
+ 0.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DUE: Final Exam
+DTSTART;TZID=America/Toronto:20251215T235900
+DTEND;TZID=America/Toronto:20251216T000000
+UID:517a5902-446e-48f5-abee-34faf136ea8f@course-outline
+DESCRIPTION:Assessment: Final Exam\nType: final\nWeight: 45.0%\nSource: Fi
+ nal Exam\, covers Mixed format 45% December Not applicable lecture 17 – 
+ 34\, (2 hrs) exam period Modules 1-5\nConfidence: 80.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: In Class Quiz 1
+DTSTART;TZID=America/Toronto:20251012T100000
+DTEND;TZID=America/Toronto:20251012T110000
+UID:a5042c63-ec2e-4282-b9fb-35df142ede22@course-outline
+DESCRIPTION:Start studying for: In Class Quiz 1\nDue date: 2025-10-19 10:0
+ 0
+PRIORITY:3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: In Class Quiz 2
+DTSTART;TZID=America/Toronto:20251105T100000
+DTEND;TZID=America/Toronto:20251105T110000
+UID:dcb35029-e1ca-48f0-9bbe-1263269478e6@course-outline
+DESCRIPTION:Start studying for: In Class Quiz 2\nDue date: 2025-11-12 10:0
+ 0
+PRIORITY:3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: Final Exam
+DTSTART;TZID=America/Toronto:20251117T235900
+DTEND;TZID=America/Toronto:20251118T005900
+UID:339926b0-9aa8-4d61-87a1-7d7d653a86c6@course-outline
+DESCRIPTION:Start studying for: Final Exam\nDue date: 2025-12-15 23:59
+PRIORITY:3
+END:VEVENT
+END:VCALENDAR

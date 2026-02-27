@@ -1,0 +1,168 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Course Outline Converter//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+SUMMARY:DUE: PeerWise Assignment 1
+DTSTART;TZID=America/Toronto:20251029T235900
+DTEND;TZID=America/Toronto:20251030T000000
+UID:a9f82ee9-acff-4f6e-9c8b-479d707d9f54@course-outline
+DESCRIPTION:Assessment: PeerWise Assignment 1\nType: assignment\nWeight: 2
+ .0%\nSource: PeerWise Write 2 multiple-choice 2% Author: Mon\, Oct. 27th R
+ eweight to midterm 1 Assignment 1 questions\, answer 10 questions by 11:59
+  PM. and provide feedback on 2 Answer and provide questions written\nConfi
+ dence: 80.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DUE: Midterm Test 1
+DTSTART;TZID=America/Toronto:20251114T200000
+DTEND;TZID=America/Toronto:20251114T200100
+UID:ac243c02-efa6-490d-96a0-9a5910f4ee67@course-outline
+DESCRIPTION:Assessment: Midterm Test 1\nType: midterm\nWeight: 25.0%\nSour
+ ce: Midterm Test 1 MCQ & Short answer 25% November 14th 6 – 8 PM Require
+ s documentation to have permission to write the makeup exam\nConfidence: 8
+ 0.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DUE: Assignment 1 Slide redesign
+DTSTART;TZID=America/Toronto:20251208T235900
+DTEND;TZID=America/Toronto:20251209T000000
+UID:eb7b55eb-4a62-40ee-9008-8ff35ed9f2c2@course-outline
+DESCRIPTION:Assessment: Assignment 1 Slide redesign\nType: assignment\nWei
+ ght: 3.0%\nSource: Assignment 1 Augment a teaching slide from 3% December 
+ 8th by 11:59 72 hour no late penalty Slide redesign lecture (individual su
+ bmission) PM.\nConfidence: 80.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DUE: PeerWise Assignment 2
+DTSTART;TZID=America/Toronto:20260121T235900
+DTEND;TZID=America/Toronto:20260122T000000
+UID:d643356d-b7f6-455f-9a8b-7a360736b2d4@course-outline
+DESCRIPTION:Assessment: PeerWise Assignment 2\nType: assignment\nWeight: 2
+ .0%\nSource: PeerWise Write 2 multiple-choice 2% Author: Mon\, Jan. 19th R
+ eweight to midterm 2 Assignment 2 questions\, answer 10 questions by 11:59
+  PM. and provide feedback on 2 Answer and provide questions feedbac\nConfi
+ dence: 80.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DUE: Midterm Test 2
+DTSTART;TZID=America/Toronto:20260130T200000
+DTEND;TZID=America/Toronto:20260130T200100
+UID:b2175f50-f797-46c9-abd7-3af1e6b8a80e@course-outline
+DESCRIPTION:Assessment: Midterm Test 2\nType: midterm\nWeight: 25.0%\nSour
+ ce: Midterm Test 2 MCQ & Short answer 25% January 30th 6 – 8 PM Requires
+  documentation to write the makeup exam\nConfidence: 80.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DUE: PeerWise Assignment 3
+DTSTART;TZID=America/Toronto:20260325T235900
+DTEND;TZID=America/Toronto:20260326T000000
+UID:39caeeae-2fae-4e12-95a8-5930c06ea591@course-outline
+DESCRIPTION:Assessment: PeerWise Assignment 3\nType: assignment\nWeight: 2
+ .0%\nSource: PeerWise Write 2 multiple-choice 2% Author: Mon\, Mar. 23rd R
+ eweigh to the final Assignment 3 questions\, answer 10 questions by 11:59 
+ PM. exam and provide feedback on 2 Answer and provide questions fee\nConfi
+ dence: 80.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DUE: Assignment 2 Slide redesign
+DTSTART;TZID=America/Toronto:20260408T235900
+DTEND;TZID=America/Toronto:20260409T000000
+UID:4d8562dc-2d45-41f7-8ef5-b52e6e488d76@course-outline
+DESCRIPTION:Assessment: Assignment 2 Slide redesign\nType: assignment\nWei
+ ght: 6.0%\nSource: Assignment 2 Augment a teaching slide from 6% Wed\, Apr
+  8th by 11:59 72 hour no late penalty Slide redesign & lecture and submit 
+ a video of PM. Teach teaching new content (can work individually or in a\n
+ Confidence: 80.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:DUE: Optional Bonus Assignment
+DTSTART;TZID=America/Toronto:20261110T235900
+DTEND;TZID=America/Toronto:20261111T000000
+UID:bd1bfea7-f597-4f15-8e97-2f1e546484c7@course-outline
+DESCRIPTION:Assessment: Optional Bonus Assignment\nType: assignment\nWeigh
+ t: 1.0%\nSource: Optional Bonus Submit the 5 tasks in the Skills\, +1% Tas
+ ks 1 – 5 are due Optional completion Assignment Attitudes and Wellness (
+ SAW) before November 10th at module before midterm #1 & a 11:59 PM. Task\n
+ Confidence: 80.0%
+PRIORITY:5
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: PeerWise Assignment 1
+DTSTART;TZID=America/Toronto:20251026T235900
+DTEND;TZID=America/Toronto:20251027T005900
+UID:67478e2c-50fb-4ed9-85ee-cfba7121a160@course-outline
+DESCRIPTION:Start studying for: PeerWise Assignment 1\nDue date: 2025-10-2
+ 9 23:59
+PRIORITY:3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: Midterm Test 1
+DTSTART;TZID=America/Toronto:20251024T200000
+DTEND;TZID=America/Toronto:20251024T210000
+UID:a2c5c82d-ceaa-4594-b4c2-116f68563f87@course-outline
+DESCRIPTION:Start studying for: Midterm Test 1\nDue date: 2025-11-14 20:00
+PRIORITY:3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: Assignment 1 Slide redesign
+DTSTART;TZID=America/Toronto:20251205T235900
+DTEND;TZID=America/Toronto:20251206T005900
+UID:e91da8c5-b183-4cb3-bd5b-ab163f905c67@course-outline
+DESCRIPTION:Start studying for: Assignment 1 Slide redesign\nDue date: 202
+ 5-12-08 23:59
+PRIORITY:3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: PeerWise Assignment 2
+DTSTART;TZID=America/Toronto:20260118T235900
+DTEND;TZID=America/Toronto:20260119T005900
+UID:f36f1278-d9df-4f15-9dbb-ef7ee28e94f5@course-outline
+DESCRIPTION:Start studying for: PeerWise Assignment 2\nDue date: 2026-01-2
+ 1 23:59
+PRIORITY:3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: Midterm Test 2
+DTSTART;TZID=America/Toronto:20260109T200000
+DTEND;TZID=America/Toronto:20260109T210000
+UID:01f1f2ab-7608-418e-8e77-bedde40ec658@course-outline
+DESCRIPTION:Start studying for: Midterm Test 2\nDue date: 2026-01-30 20:00
+PRIORITY:3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: PeerWise Assignment 3
+DTSTART;TZID=America/Toronto:20260322T235900
+DTEND;TZID=America/Toronto:20260323T005900
+UID:f7c4d6f8-2be9-426c-b10c-ba6b4c605e89@course-outline
+DESCRIPTION:Start studying for: PeerWise Assignment 3\nDue date: 2026-03-2
+ 5 23:59
+PRIORITY:3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: Assignment 2 Slide redesign
+DTSTART;TZID=America/Toronto:20260401T235900
+DTEND;TZID=America/Toronto:20260402T005900
+UID:62a6a0f0-b058-4681-b89d-1b0bd157dffc@course-outline
+DESCRIPTION:Start studying for: Assignment 2 Slide redesign\nDue date: 202
+ 6-04-08 23:59
+PRIORITY:3
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:START: Optional Bonus Assignment
+DTSTART;TZID=America/Toronto:20261107T235900
+DTEND;TZID=America/Toronto:20261108T005900
+UID:4af2e92d-0a95-4dff-9fdf-5e2929da0661@course-outline
+DESCRIPTION:Start studying for: Optional Bonus Assignment\nDue date: 2026-
+ 11-10 23:59
+PRIORITY:3
+END:VEVENT
+END:VCALENDAR

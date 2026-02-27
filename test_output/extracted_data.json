@@ -1,0 +1,14 @@
+{
+  "term": {
+    "term_name": "Fall 2025",
+    "start_date": "2025-09-01",
+    "end_date": "2025-12-15"
+  },
+  "course_code": "PHYS 3140A",
+  "course_name": "Cellular Physiology",
+  "lecture_sections": 1,
+  "lab_sections": 0,
+  "assessments": 3,
+  "study_plan_items": 3,
+  "calendar_events": 9
+}
