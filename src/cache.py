@@ -42,7 +42,9 @@ class CacheManager:
             cache_dir: Directory for cache storage. Defaults to ~/.course_outline_cache
         """
         if cache_dir is None:
-            cache_dir = Path.home() / ".course_outline_cache"
+            cache_dir = Path(
+                os.getenv("COURSE_OUTLINE_CACHE_DIR", str(Path.home() / ".course_outline_cache"))
+            )
         cache_dir.mkdir(parents=True, exist_ok=True)
         self.db_path = cache_dir / "cache.db"
         self._init_db()
@@ -456,4 +458,3 @@ def get_cache_manager():
 
 # Alias for backward compatibility
 SQLiteCacheManager = CacheManager
-

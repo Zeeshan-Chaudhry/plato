@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Extraction Review - Plato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --line: rgba(146, 161, 185, 0.22);
+      --line-strong: rgba(146, 161, 185, 0.35);
+      --text: #e7edf9;
+      --text-muted: #93a0b8;
+      --accent: #4f7cff;
+      --accent-2: #7b61ff;
+      --success: #27d79e;
+      --danger: #ff5e78;
+      --shadow: 0 22px 60px rgba(4, 8, 15, 0.55);
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 40px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(79, 124, 255, 0.17), transparent 35%),
+        radial-gradient(circle at 90% 0%, rgba(123, 97, 255, 0.15), transparent 30%),
+        linear-gradient(180deg, #0f1115 0%, #0d1018 100%);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: var(--space-5) var(--space-2);
+    }
+
+    .shell { max-width: 1024px; margin: 0 auto; }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+    .brand { display: flex; flex-direction: column; gap: 4px; }
+    .brand-top { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 16px rgba(79,124,255,0.85);
+    }
+    .tagline { color: var(--text-muted); font-size: 13px; }
+    .pill {
+      border: 1px solid var(--line-strong);
+      color: var(--text-muted);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(165deg, rgba(255,255,255,0.03), rgba(255,255,255,0.005));
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      padding: var(--space-4);
+    }
+
+    .title {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      margin-top: var(--space-3);
+      display: grid;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+    .meta strong { color: #dce8ff; font-weight: 700; }
+
+    .flash-list { margin-top: var(--space-3); display: grid; gap: 10px; }
+    .flash {
+      border-radius: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      font-size: 13px;
+      color: var(--text);
+    }
+    .flash.success { border-color: rgba(39, 215, 158, 0.4); }
+    .flash.error { border-color: rgba(255, 94, 120, 0.5); }
+    .flash.info { border-color: rgba(79, 124, 255, 0.45); }
+    .flash.warning { border-color: rgba(255, 197, 94, 0.5); }
+
+    #review-form {
+      margin-top: var(--space-3);
+      display: grid;
+      gap: var(--space-2);
+      padding: var(--space-3);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(15, 20, 31, 0.75);
+    }
+
+    .control-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2);
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    select {
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      background: #111827;
+      color: var(--text);
+      min-height: 42px;
+      padding: 0 12px;
+      font-size: 14px;
+    }
+    select:focus {
+      outline: none;
+      border-color: rgba(79,124,255,0.8);
+      box-shadow: 0 0 0 3px rgba(79,124,255,0.2);
+    }
+
+    .actions { display: flex; align-items: center; gap: 12px; margin-top: 2px; }
+    .btn-primary {
+      appearance: none;
+      border: 1px solid rgba(131,160,255,0.58);
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #6e67ff);
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 11px 18px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(79,124,255,0.34), 0 0 18px rgba(79,124,255,0.18);
+    }
+    .btn-primary:hover { transform: translateY(-1px); }
+
+    .section-title {
+      margin: var(--space-4) 0 var(--space-2) 0;
+      font-size: clamp(24px, 2.8vw, 34px);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .table-wrap {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(14, 20, 31, 0.72);
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(146, 161, 185, 0.14);
+      vertical-align: top;
+    }
+    th {
+      color: #dce8ff;
+      font-size: 13px;
+      font-family: "JetBrains Mono", monospace;
+      letter-spacing: 0.02em;
+      background: rgba(255,255,255,0.02);
+    }
+    td { color: #d2dbef; font-size: 15px; }
+    tbody tr:last-child td { border-bottom: 0; }
+
+    .link-row { margin-top: var(--space-3); }
+    .link {
+      color: #c2d0ef;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(194,208,239,0.35);
+      padding-bottom: 1px;
+    }
+    .link:hover { color: #edf3ff; border-bottom-color: rgba(237,243,255,0.65); }
+
+    @media (max-width: 760px) {
+      body { padding: var(--space-3) var(--space-2); }
+      .card { padding: var(--space-3); }
+      .pill { display: none; }
+      .control-grid { grid-template-columns: 1fr; }
+      .actions { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-top"><span class="dot"></span><span>Plato</span></div>
+        <span class="tagline">Convert course outlines into calendar schedules</span>
+      </div>
+      <span class="pill">dashboard/review</span>
+    </nav>
+
+    <section class="card">
+      <h1 class="title">Extraction Review</h1>
+      <div class="meta">
+        <div><strong>Course:</strong> {{ course_code }} - {{ course_name }}</div>
+        <div><strong>Term:</strong> {{ term.term_name }} ({{ term.start_date }} to {{ term.end_date }})</div>
+      </div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-list">
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ category }}: {{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <form id="review-form" method="post" action="{{ url_for('review') }}">
+        <div class="control-grid">
+          <div class="field">
+            <label for="lecture_section">LECTURE SECTION</label>
+            <select id="lecture_section" name="lecture_section">
+              <option value="none">None</option>
+              {% for section in lecture_sections %}
+              <option value="{{ loop.index0 }}">
+                {{ section.section_id or ('Lecture ' ~ loop.index) }} |
+                {% for day in section.days_of_week %}{{ day }}{% if not loop.last %},{% endif %}{% endfor %}
+                | {{ section.start_time|time_12h }}-{{ section.end_time|time_12h }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="field">
+            <label for="lab_section">LAB SECTION</label>
+            <select id="lab_section" name="lab_section">
+              <option value="none">None</option>
+              {% for section in lab_sections %}
+              <option value="{{ loop.index0 }}">
+                {{ section.section_id or ('Lab ' ~ loop.index) }} |
+                {% for day in section.days_of_week %}{{ day }}{% if not loop.last %},{% endif %}{% endfor %}
+                | {{ section.start_time|time_12h }}-{{ section.end_time|time_12h }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn-primary">Generate .ics Calendar</button>
+        </div>
+      </form>
+
+      <h2 class="section-title">Assessments</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Type</th>
+              <th>Weight</th>
+              <th>Due</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for a in assessments %}
+            <tr>
+              <td>{{ a.title }}</td>
+              <td>{{ a.type }}</td>
+              <td>{{ a.weight_percent if a.weight_percent is not none else 'N/A' }}%</td>
+              <td>{{ a.due_datetime if a.due_datetime else (a.due_rule if a.due_rule else 'N/A') }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="4">No assessments detected.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="link-row"><a class="link" href="{{ url_for('index') }}">Back to Upload</a></div>
+    </section>
+  </div>
+</body>
+</html>

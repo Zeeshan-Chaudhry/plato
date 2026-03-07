@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --bg-elev: #161a21;
+      --bg-elev-2: #1b2130;
+      --line: rgba(146, 161, 185, 0.22);
+      --line-strong: rgba(146, 161, 185, 0.38);
+      --text: #e7edf9;
+      --text-muted: #93a0b8;
+      --accent: #4f7cff;
+      --accent-2: #7b61ff;
+      --success: #27d79e;
+      --danger: #ff5e78;
+      --shadow: 0 22px 60px rgba(4, 8, 15, 0.55);
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 40px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(79, 124, 255, 0.17), transparent 35%),
+        radial-gradient(circle at 90% 0%, rgba(123, 97, 255, 0.15), transparent 30%),
+        linear-gradient(180deg, #0f1115 0%, #0d1018 100%);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: var(--space-5) var(--space-2);
+    }
+
+    .shell {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      font-size: 18px;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 16px rgba(79,124,255,0.85);
+    }
+
+    .tagline {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .pill {
+      border: 1px solid var(--line-strong);
+      color: var(--text-muted);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(165deg, rgba(255,255,255,0.03), rgba(255,255,255,0.005));
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      padding: var(--space-4);
+    }
+
+    #upload-form {
+      margin-top: var(--space-3);
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .title {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 34px);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .sub {
+      margin: 10px 0 0 0;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .dropzone {
+      border: 1.5px dashed var(--line-strong);
+      background: linear-gradient(180deg, rgba(27,33,48,0.7), rgba(22,26,33,0.55));
+      border-radius: 18px;
+      padding: 44px var(--space-3);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 220px;
+      cursor: pointer;
+      transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dropzone:before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 18px;
+      pointer-events: none;
+      background: linear-gradient(115deg, rgba(79,124,255,0.16), rgba(123,97,255,0.06), transparent);
+      opacity: 0;
+      transition: opacity 180ms ease;
+    }
+
+    .dropzone:hover,
+    .dropzone.dragging {
+      border-color: rgba(79, 124, 255, 0.7);
+      transform: translateY(-1px);
+      box-shadow: 0 0 0 1px rgba(79,124,255,0.2), 0 0 30px rgba(79,124,255,0.22);
+      background: linear-gradient(180deg, rgba(33,40,59,0.9), rgba(22,26,33,0.6));
+    }
+
+    .dropzone:hover:before,
+    .dropzone.dragging:before {
+      opacity: 1;
+    }
+
+    .drop-icon {
+      width: 36px;
+      height: 36px;
+      margin: 0 0 8px 0;
+      color: #b9c7e6;
+    }
+
+    .drop-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .drop-sub {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .drop-sub b { color: #d6e3ff; font-weight: 600; }
+
+    input[type="file"] { display: none; }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .file-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(19, 24, 36, 0.88);
+      padding: 10px 12px;
+      min-height: 42px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .file-chip strong { color: #dce8ff; font-weight: 600; }
+
+    .switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .switch input { display: none; }
+
+    .track {
+      width: 42px;
+      height: 24px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #171c27;
+      position: relative;
+      transition: background 180ms ease, border-color 180ms ease;
+    }
+
+    .thumb {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      top: 2px;
+      left: 3px;
+      border-radius: 999px;
+      background: #a9b9d9;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .switch input:checked + .track {
+      background: rgba(79,124,255,0.25);
+      border-color: rgba(79,124,255,0.68);
+    }
+
+    .switch input:checked + .track .thumb {
+      transform: translateX(18px);
+      background: #d9e5ff;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      appearance: none;
+      border: 1px solid rgba(131,160,255,0.58);
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #6e67ff);
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 11px 18px;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+      box-shadow: 0 8px 24px rgba(79,124,255,0.34), 0 0 18px rgba(79,124,255,0.18);
+    }
+
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); opacity: 0.95; }
+    .btn-primary:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(79,124,255,0.32), 0 8px 24px rgba(79,124,255,0.34);
+    }
+
+    .manual-link {
+      color: #c1ceea;
+      text-decoration: none;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .manual-link:hover {
+      border-color: var(--line);
+      background: rgba(255,255,255,0.03);
+      color: #e6edff;
+    }
+
+    .progress {
+      margin-top: 2px;
+      display: none;
+    }
+
+    .progress.active { display: block; }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-2);
+      margin-bottom: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .bar-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #4f7cff, #7b61ff);
+      transition: width 220ms linear;
+    }
+
+    .terminal {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #0b0f17;
+      padding: 10px 12px;
+      min-height: 94px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: #aab8d3;
+      line-height: 1.65;
+    }
+
+    .terminal .ok { color: var(--success); }
+    .terminal .err { color: var(--danger); }
+
+    .flash-list {
+      margin-top: var(--space-3);
+      display: grid;
+      gap: 10px;
+    }
+
+    .flash {
+      border-radius: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      font-size: 13px;
+    }
+
+    .flash.success { border-color: rgba(39, 215, 158, 0.4); }
+    .flash.error { border-color: rgba(255, 94, 120, 0.5); }
+    .flash.info { border-color: rgba(79, 124, 255, 0.45); }
+    .flash.warning { border-color: rgba(255, 197, 94, 0.5); }
+
+    @media (max-width: 760px) {
+      body { padding: var(--space-3) var(--space-2); }
+      .card { padding: var(--space-3); }
+      .dropzone { padding: 34px var(--space-2); min-height: 190px; }
+      .nav { padding: 14px; }
+      .pill { display: none; }
+      .meta, .actions { flex-direction: column; align-items: stretch; }
+      .switch { justify-content: space-between; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-top">
+          <span class="dot"></span>
+          <span>Plato</span>
+        </div>
+        <span class="tagline">Convert course outlines into calendar schedules</span>
+      </div>
+      <span class="pill">dashboard/upload</span>
+    </nav>
+
+    <section class="card">
+      <h1 class="title">Schedule Extraction Workspace</h1>
+      <p class="sub">Upload a syllabus PDF, run extraction, and generate an iCalendar workflow artifact.</p>
+
+      <form id="upload-form" action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+        <label for="pdf_file" id="dropzone" class="dropzone">
+          <svg class="drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 16V4"></path>
+            <path d="m7 9 5-5 5 5"></path>
+            <path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path>
+            <path d="M8 16h8"></path>
+          </svg>
+          <div class="drop-title">Drop your syllabus PDF here</div>
+          <div class="drop-sub">or <b>click to browse</b></div>
+          <input id="pdf_file" type="file" name="pdf_file" accept="application/pdf" required>
+        </label>
+
+        <div class="meta">
+          <div class="file-chip" id="file-chip">
+            <span>FILE</span>
+            <strong id="file-name">none selected</strong>
+          </div>
+          <label class="switch">
+            <input type="checkbox" name="force_refresh" id="force-refresh">
+            <span class="track"><span class="thumb"></span></span>
+            <span>Force Refresh Extraction</span>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button class="btn-primary" type="submit" id="extract-btn">Extract Schedule</button>
+          <a class="manual-link" href="{{ url_for('manual') }}">Manual Mode</a>
+        </div>
+      </form>
+
+      <div class="progress" id="progress-wrap">
+        <div class="progress-top">
+          <span>EXTRACTION PIPELINE</span>
+          <span id="progress-value">0%</span>
+        </div>
+        <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
+      </div>
+
+      <div class="terminal" id="status-log">
+        <div>$ plato.extract --input syllabus.pdf</div>
+        <div>> waiting for file upload...</div>
+      </div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-list">
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ category }}: {{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+    </section>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById("pdf_file");
+    const dropzone = document.getElementById("dropzone");
+    const fileNameEl = document.getElementById("file-name");
+    const form = document.getElementById("upload-form");
+    const progressWrap = document.getElementById("progress-wrap");
+    const progressValue = document.getElementById("progress-value");
+    const barFill = document.getElementById("bar-fill");
+    const statusLog = document.getElementById("status-log");
+
+    function pushLog(message, cls) {
+      const line = document.createElement("div");
+      if (cls) line.className = cls;
+      line.textContent = message;
+      statusLog.appendChild(line);
+      statusLog.scrollTop = statusLog.scrollHeight;
+    }
+
+    function setFile(file) {
+      fileInput.files = (() => {
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        return dt.files;
+      })();
+      fileNameEl.textContent = file.name;
+      pushLog("> file detected: " + file.name, "ok");
+    }
+
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files && fileInput.files[0];
+      if (!file) return;
+      fileNameEl.textContent = file.name;
+      pushLog("> file selected: " + file.name, "ok");
+    });
+
+    ["dragenter", "dragover"].forEach((eventName) => {
+      dropzone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.add("dragging");
+      });
+    });
+
+    ["dragleave", "drop"].forEach((eventName) => {
+      dropzone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove("dragging");
+      });
+    });
+
+    dropzone.addEventListener("drop", (e) => {
+      const file = e.dataTransfer.files && e.dataTransfer.files[0];
+      if (!file) return;
+      if (!file.name.toLowerCase().endsWith(".pdf")) {
+        pushLog("> invalid file type: expected .pdf", "err");
+        return;
+      }
+      setFile(file);
+    });
+
+    form.addEventListener("submit", (e) => {
+      if (!fileInput.files || !fileInput.files[0]) {
+        e.preventDefault();
+        pushLog("> blocked: no file selected", "err");
+        return;
+      }
+      progressWrap.classList.add("active");
+      let p = 4;
+      barFill.style.width = p + "%";
+      progressValue.textContent = p + "%";
+      pushLog("> initializing extraction workers...");
+      const interval = setInterval(() => {
+        p = Math.min(p + Math.floor(Math.random() * 11 + 5), 92);
+        barFill.style.width = p + "%";
+        progressValue.textContent = p + "%";
+        if (p > 40) pushLog("> parsing PDF layout...");
+        if (p > 70) pushLog("> resolving assessment rules...");
+      }, 260);
+      window.addEventListener("beforeunload", () => clearInterval(interval), { once: true });
+    });
+  </script>
+</body>
+</html>
